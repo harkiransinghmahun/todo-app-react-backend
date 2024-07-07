@@ -1,6 +1,10 @@
 spring:
   application:
     name: todo-app
+  security:
+    user:
+      name: harkiran
+      password: dummy
   mvc:
     view:
       prefix: /WEB-INF/jsp/
@@ -9,18 +13,20 @@ spring:
       date: yyyy-MM-dd
   datasource:
 #    Config for using in-memory h2 database
-#    url:  jdbc:h2:mem:testdb
+    url:  jdbc:h2:mem:testdb
+    username: sa
+    password:
 
-#   Config for using mysql db. Make sure to startup docker mysql container
-    url: jdbc:mysql://localhost:3306/todos
-    username: todos-user
-    password: dummytodos
+  #   Config for using mysql db. Make sure to startup docker mysql container
+#    url: jdbc:mysql://localhost:3306/todos
+#    username: todos-user
+#    password: dummytodos
 
   jpa:
     defer-datasource-initialization: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
 
